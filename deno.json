@@ -1,6 +1,8 @@
 {
   "tasks": {
+   
     "chronosphere": "deno run --allow-net --allow-read --unstable-kv main.ts",
+  
     "times": "deno run --allow-net --allow-read --unstable-kv cli.ts"
   },
   "imports": {}

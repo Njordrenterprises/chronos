@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHRONOSPHERE</title>
+    <!-- HTMX library for dynamic updates -->
     <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+    <!-- Cyberpunk styling -->
     <link rel="stylesheet" href="/frontend/main.css">
 </head>
 <body>
     <div class="container">
+        <!-- Main title with glitch animation -->
         <h1>CHRONOSPHERE</h1>
+        
+        <!-- Start button - Creates new time entry -->
+        <!-- HTMX: POST to /api/start, update #log-entry with 500ms transition -->
         <button 
             hx-post="/api/start"
             hx-target="#log-entry"
             hx-swap="innerHTML swap:500ms">
             START
         </button>
+        
+        <!-- View Database button - Shows all entries -->
+        <!-- HTMX: GET from /api/db, update #log-entry with 500ms transition -->
         <button 
             hx-get="/api/db"
             hx-target="#log-entry"
@@ -23,6 +32,8 @@
             class="view-db-btn">
             VIEW DATABASE
         </button>
+        
+        <!-- Log window - Dynamic content area -->
         <div id="log-window" class="log-window">
             <div id="log-entry" class="log-entry"></div>
         </div>

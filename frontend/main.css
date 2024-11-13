@@ -1,17 +1,20 @@
+/* Global Variables */
 :root {
-    --neon-green: #39ff14;
-    --cyber-blue: #0ff;
-    --dark-void: #0a0a0a;
-    --grid-color: rgba(57, 255, 20, 0.1);
+    --neon-green: #39ff14;  /* Primary accent color */
+    --cyber-blue: #0ff;     /* Secondary accent color */
+    --dark-void: #0a0a0a;   /* Background color */
+    --grid-color: rgba(57, 255, 20, 0.1);  /* Grid overlay color */
 }
 
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', monospace;  /* Cyberpunk-style font */
 }
 
+/* Main background setup with grid overlay */
 body {
     background: var(--dark-void);
     color: var(--neon-green);
@@ -22,6 +25,7 @@ body {
     overflow: hidden;
 }
 
+/* Grid background overlay effect */
 body::before {
     content: '';
     position: absolute;
@@ -36,26 +40,29 @@ body::before {
     z-index: 1;
 }
 
+/* Main container styling */
 .container {
     position: relative;
-    z-index: 2;
+    z-index: 2;  /* Places container above grid background */
     background: rgba(0, 0, 0, 0.8);
     padding: 2rem;
     border: 1px solid var(--neon-green);
-    box-shadow: 0 0 20px var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green);  /* Neon glow effect */
     border-radius: 5px;
     width: 90%;
     max-width: 600px;
 }
 
+/* Main title with glitch animation */
 h1 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
     text-shadow: 0 0 10px var(--neon-green);
-    animation: glitch 2s infinite;
+    animation: glitch 2s infinite;  /* Continuous glitch effect */
 }
 
+/* Button styling (START and VIEW DATABASE buttons) */
 button {
     background: transparent;
     border: 1px solid var(--neon-green);
@@ -68,12 +75,14 @@ button {
     width: 100%;
 }
 
+/* Button hover effect */
 button:hover {
     background: var(--neon-green);
     color: var(--dark-void);
-    box-shadow: 0 0 20px var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green);  /* Neon glow on hover */
 }
 
+/* Log window container (displays time entries and database view) */
 .log-window {
     margin-top: 2rem;
     padding: 1rem;
@@ -81,15 +90,17 @@ button:hover {
     background: rgba(0, 255, 255, 0.1);
 }
 
+/* Individual log entry styling with HTMX transition */
 .log-entry {
     opacity: 1;
     transition: opacity 500ms ease-in-out;
 }
 
 .log-entry.htmx-swapping {
-    opacity: 0;
+    opacity: 0;  /* Fade out during HTMX swap */
 }
 
+/* Glitch animation for title */
 @keyframes glitch {
     0% { text-shadow: 0 0 10px var(--neon-green); }
     15% { text-shadow: 2px 2px var(--cyber-blue), -2px -2px var(--neon-green); }
@@ -97,6 +108,7 @@ button:hover {
     100% { text-shadow: 0 0 10px var(--neon-green); }
 }
 
+/* Mobile responsiveness */
 @media (max-width: 600px) {
     .container {
         width: 95%;
@@ -108,23 +120,26 @@ button:hover {
     }
 }
 
+/* Time entry transition effects */
 .time-entry-transition {
     opacity: 1;
     transition: opacity 0.3s ease-out;
 }
 
 .time-entry-transition.htmx-swapping {
-    opacity: 0;
+    opacity: 0;  /* Fade out during HTMX swap */
 }
 
+/* Database entries container with scrolling */
 .db-entries {
     max-height: 400px;
     overflow-y: auto;
     display: grid;
     gap: 1rem;
-    padding-right: 10px;
+    padding-right: 10px;  /* Space for scrollbar */
 }
 
+/* Individual database entry styling */
 .db-entry {
     border: 1px solid var(--cyber-blue);
     padding: 1rem;
@@ -132,10 +147,12 @@ button:hover {
     transition: all 0.3s ease;
 }
 
+/* Hover effect for database entries */
 .db-entry:hover {
     box-shadow: 0 0 10px var(--cyber-blue);
 }
 
+/* Header styling for each database entry */
 .entry-header {
     display: flex;
     align-items: center;
@@ -143,22 +160,25 @@ button:hover {
     margin-bottom: 0.5rem;
 }
 
+/* Status indicator dot */
 .status-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--neon-green);
+    background: var(--neon-green);  /* Active status color */
 }
 
+/* Inactive status indicator */
 .db-entry.inactive .status-dot {
-    background: #ff3939;
+    background: #ff3939;  /* Red for inactive status */
 }
 
+/* Database entries HTMX transition */
 .db-entries.htmx-swapping {
     opacity: 0;
 }
 
-/* Scrollbar styling */
+/* Custom scrollbar styling */
 .db-entries::-webkit-scrollbar {
     width: 8px;
 }
@@ -177,4 +197,12 @@ button:hover {
 .db-entries::-webkit-scrollbar-thumb:hover {
     background: var(--cyber-blue);
     box-shadow: 0 0 10px var(--cyber-blue);
+}
+
+/* Entry ID styling (used in both single entry and database view) */
+.entry-id {
+    color: var(--cyber-blue);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--cyber-blue);  /* Cyber glow effect */
+    margin-top: 0.5rem;
 }
