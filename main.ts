@@ -12,6 +12,13 @@ async function handler(req: Request): Promise<Response> {
     });
   }
   
+  if (url.pathname === "/frontend/main.css" && req.method === "GET") {
+    const css = await Deno.readFile("./frontend/main.css");
+    return new Response(css, {
+      headers: { "Content-Type": "text/css" },
+    });
+  }
+  
   if (url.pathname === "/api/start" && req.method === "POST") {
     return await handleStart(req);
   }

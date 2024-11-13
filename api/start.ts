@@ -18,7 +18,7 @@ export async function handleStart(_req: Request): Promise<Response> {
     await kv.set(["startDate", userId], entry);
     
     const html = `
-      <div id="time-entry" class="p-4">
+      <div id="time-entry">
         <h2>Time Entry</h2>
         <p>Started at: ${new Date(entry.timestamp).toLocaleString()}</p>
       </div>
