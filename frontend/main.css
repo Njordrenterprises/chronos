@@ -74,11 +74,20 @@ button:hover {
     box-shadow: 0 0 20px var(--neon-green);
 }
 
-#time-entry {
+.log-window {
     margin-top: 2rem;
     padding: 1rem;
     border: 1px solid var(--cyber-blue);
     background: rgba(0, 255, 255, 0.1);
+}
+
+.log-entry {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.log-entry.htmx-swapping {
+    opacity: 0;
 }
 
 @keyframes glitch {

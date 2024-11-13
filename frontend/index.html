@@ -10,17 +10,14 @@
 <body>
     <div class="container">
         <h1>CHRONOSPHERE</h1>
-        <div id="timer-container">
-            <button 
-                hx-post="/api/start"
-                hx-target="#time-entry"
-                hx-swap="innerHTML">
-                INITIATE TIME SEQUENCE
-            </button>
-        </div>
-        <div id="time-entry" 
-             class="time-entry-transition"
-             hx-swap="innerHTML swap:0.3s">
+        <button 
+            hx-post="/api/start"
+            hx-target="#log-entry"
+            hx-swap="innerHTML swap:500ms">
+            START
+        </button>
+        <div id="log-window" class="log-window">
+            <div id="log-entry" class="log-entry"></div>
         </div>
     </div>
 </body>
