@@ -1,3 +1,5 @@
+import { generateId } from "../utils/id_generator.ts";
+
 interface TimeEntry {
   timestamp: string;
   userId: string;
@@ -8,7 +10,7 @@ export async function handleStart(_req: Request): Promise<Response> {
   const kv = await Deno.openKv();
   
   try {
-    const userId = crypto.randomUUID();
+    const userId = generateId();
     const entry: TimeEntry = {
       timestamp: new Date().toISOString(),
       userId,
