@@ -116,3 +116,65 @@ button:hover {
 .time-entry-transition.htmx-swapping {
     opacity: 0;
 }
+
+.db-entries {
+    max-height: 400px;
+    overflow-y: auto;
+    display: grid;
+    gap: 1rem;
+    padding-right: 10px;
+}
+
+.db-entry {
+    border: 1px solid var(--cyber-blue);
+    padding: 1rem;
+    background: rgba(0, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.db-entry:hover {
+    box-shadow: 0 0 10px var(--cyber-blue);
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-green);
+}
+
+.db-entry.inactive .status-dot {
+    background: #ff3939;
+}
+
+.db-entries.htmx-swapping {
+    opacity: 0;
+}
+
+/* Scrollbar styling */
+.db-entries::-webkit-scrollbar {
+    width: 8px;
+}
+
+.db-entries::-webkit-scrollbar-track {
+    background: var(--dark-void);
+    border: 1px solid var(--cyber-blue);
+}
+
+.db-entries::-webkit-scrollbar-thumb {
+    background: var(--neon-green);
+    border-radius: 4px;
+    box-shadow: 0 0 5px var(--neon-green);
+}
+
+.db-entries::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-blue);
+}

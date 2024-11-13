@@ -1,4 +1,5 @@
 import { handleStart } from "./api/start.ts";
+import { handleDb } from "./api/db.ts";
 
 const port = 8000;
 
@@ -21,6 +22,10 @@ async function handler(req: Request): Promise<Response> {
   
   if (url.pathname === "/api/start" && req.method === "POST") {
     return await handleStart(req);
+  }
+  
+  if (url.pathname === "/api/db" && req.method === "GET") {
+    return await handleDb(req);
   }
 
   return new Response("Not Found", { 

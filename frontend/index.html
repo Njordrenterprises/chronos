@@ -16,6 +16,13 @@
             hx-swap="innerHTML swap:500ms">
             START
         </button>
+        <button 
+            hx-get="/api/db"
+            hx-target="#log-entry"
+            hx-swap="innerHTML swap:500ms"
+            class="view-db-btn">
+            VIEW DATABASE
+        </button>
         <div id="log-window" class="log-window">
             <div id="log-entry" class="log-entry"></div>
         </div>
